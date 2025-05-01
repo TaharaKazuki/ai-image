@@ -7,6 +7,7 @@ const notoSansJP = Noto_Sans_JP({
   subsets: ['latin'],
   weight: ['400', '500', '700'],
   variable: '--font-noto-sans-jp',
+  preload: true,
 });
 
 export const metadata: Metadata = {
@@ -20,10 +21,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja" className="dark">
+    <html lang="ja">
       <body
         suppressHydrationWarning
-        className={`${notoSansJP.variable} antialiased`}
+        className={`${notoSansJP.className} antialiased`}
       >
         {children}
       </body>
