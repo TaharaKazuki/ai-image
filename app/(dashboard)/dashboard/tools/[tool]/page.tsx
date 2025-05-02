@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 
+import PageContainer from '@/components/dashboard/page-container';
 import { tools, ToolType } from '@/config/tools';
 
 type Props = {
@@ -15,9 +16,9 @@ const ToolPage = ({ params }: Props) => {
   if (!tool) return notFound();
 
   return (
-    <div>
+    <PageContainer>
       <h2>{tool.title}</h2>
-    </div>
+    </PageContainer>
   );
 };
 
