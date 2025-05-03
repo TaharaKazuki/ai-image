@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 
 import PageContainer from '@/components/dashboard/page-container';
+import PageHeader from '@/components/dashboard/page-header';
 import { tools, ToolType } from '@/config/tools';
 
 type Props = {
@@ -17,7 +18,10 @@ const ToolPage = ({ params }: Props) => {
 
   return (
     <PageContainer>
-      <h2>{tool.title}</h2>
+      <PageHeader title={tool.title} description={tool.description} />
+      <div>
+        <ToolComponent />
+      </div>
     </PageContainer>
   );
 };
