@@ -16,10 +16,12 @@ const ToolPage = ({ params }: Props) => {
 
   if (!tool) return notFound();
 
+  const ToolComponent = tool.component;
+
   return (
     <PageContainer>
       <PageHeader title={tool.title} description={tool.description} />
-      <div>
+      <div className="max-w-2xl">
         <ToolComponent />
       </div>
     </PageContainer>
