@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 'use client';
 
 import { useActionState } from 'react';
@@ -31,6 +32,23 @@ const ImageGenerator = () => {
           <Button>画像を生成する</Button>
         </form>
       </div>
+
+      {state.imageUrl && (
+        <div className="space-y-4">
+          <div className="bg-background overflow-hidden rounded-lg border">
+            <div className="relative aspect-video">
+              <img
+                src={state.imageUrl}
+                alt="Generated image"
+                className="h-full w-full object-cover"
+              />
+            </div>
+          </div>
+          <Button className="w-full" variant={'outline'}>
+            ダウンロード
+          </Button>
+        </div>
+      )}
     </div>
   );
 };

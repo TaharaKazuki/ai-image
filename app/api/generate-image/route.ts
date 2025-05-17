@@ -4,7 +4,6 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(request: NextRequest) {
   const { keyword } = await request.json();
-  console.log(keyword);
 
   try {
     const payload = {
@@ -33,8 +32,9 @@ export async function POST(request: NextRequest) {
       throw new Error(`API error: ${process.env.STABILITY_API_KEY}`);
     }
 
-    console.info(response.data);
-    return NextResponse.json(response.data);
+    const base64Image = Buffer.from(response.data).toString('base64');
+    const imageUrl = `data:image/png;base64,${base64Image}`;
+    return NextResponse.json({ imageUrl });
   } catch (error) {
     console.error(`Error generate image:${error}`);
 
