@@ -1,6 +1,7 @@
 import axios from 'axios';
 import FormData from 'form-data';
 import { NextRequest, NextResponse } from 'next/server';
+import sharp from 'sharp';
 
 export async function POST(request: NextRequest) {
   const { keyword } = await request.json();
@@ -32,8 +33,14 @@ export async function POST(request: NextRequest) {
       throw new Error(`API error: ${process.env.STABILITY_API_KEY}`);
     }
 
-    const base64Image = Buffer.from(response.data).toString('base64');
+    const optimizedImage = await sharp(response.data)
+      .resize(1280, 720)
+      .png({ quality: 80, compressionLevel: 9 })
+      .toBuffer();
+
+    const base64Image = optimizedImage.toString('base64');
     const imageUrl = `data:image/png;base64,${base64Image}`;
+
     return NextResponse.json({ imageUrl });
   } catch (error) {
     console.error(`Error generate image:${error}`);
