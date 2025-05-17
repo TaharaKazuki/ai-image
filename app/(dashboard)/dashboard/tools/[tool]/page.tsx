@@ -10,7 +10,7 @@ type Props = {
   };
 };
 
-const ToolPage = ({ params }: Props) => {
+const ToolPage = async ({ params }: Props) => {
   const toolType = params.tool as ToolType;
   const tool = tools[toolType];
 

@@ -4,6 +4,7 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(request: NextRequest) {
   const { keyword } = await request.json();
+  console.log(keyword);
 
   try {
     const payload = {
