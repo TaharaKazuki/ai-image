@@ -1,20 +1,27 @@
 /* eslint-disable @next/next/no-img-element */
 'use client';
 
+import { Download, ImageIcon } from 'lucide-react';
 import { useActionState } from 'react';
 
 import { generateImage } from '@/actions/actions';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { cn } from '@/lib/utils';
 import { GenerateImageState } from '@/types/actions';
+
+import LoadingSpinner from '../loading-spinner';
 
 const ImageGenerator = () => {
   const initialState: GenerateImageState = {
     status: 'idle',
   };
 
-  const [state, formAction] = useActionState(generateImage, initialState);
+  const [state, formAction, pending] = useActionState(
+    generateImage,
+    initialState
+  );
 
   return (
     <div className="space-y-6">
@@ -29,7 +36,20 @@ const ImageGenerator = () => {
               required
             />
           </div>
-          <Button>画像を生成する</Button>
+          <Button
+            type="submit"
+            disabled={pending}
+            className={cn('w-full duration-200', pending && 'bg-primary/80')}
+          >
+            {pending ? (
+              <LoadingSpinner />
+            ) : (
+              <>
+                <ImageIcon className="mr-2" />
+                画像を生成する
+              </>
+            )}
+          </Button>
         </form>
       </div>
 
@@ -45,6 +65,7 @@ const ImageGenerator = () => {
             </div>
           </div>
           <Button className="w-full" variant={'outline'}>
+            <Download className="mr-2" />
             ダウンロード
           </Button>
         </div>
