@@ -11,7 +11,8 @@ type Props = {
 };
 
 const ToolPage = async ({ params }: Props) => {
-  const toolType = params.tool as ToolType;
+  const resolvedParams = await Promise.resolve(params);
+  const toolType = resolvedParams.tool as ToolType;
   const tool = tools[toolType];
 
   if (!tool) return notFound();

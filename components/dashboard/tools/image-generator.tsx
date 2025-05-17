@@ -14,7 +14,7 @@ const ImageGenerator = () => {
       body: JSON.stringify({ keyword }),
     });
 
-    console.log(response);
+    console.log('ああああ', response);
   }
 
   return (

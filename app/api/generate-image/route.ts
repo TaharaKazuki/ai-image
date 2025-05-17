@@ -34,6 +34,7 @@ export async function POST(request: NextRequest) {
     }
 
     console.info(response.data);
+    return NextResponse.json(response.data);
   } catch (error) {
     console.error(`Error generate image:${error}`);
 
