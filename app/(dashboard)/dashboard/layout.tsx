@@ -2,6 +2,7 @@ import Link from 'next/link';
 
 import MobileNav from '@/components/dashboard/mobile-nav';
 import DashboardNav from '@/components/dashboard/nav';
+import { Toaster } from '@/components/ui/toaster';
 
 export default function DashboardLayout({
   children,
@@ -32,6 +33,7 @@ export default function DashboardLayout({
           {children}
         </main>
       </div>
+      <Toaster />
     </div>
   );
 }
