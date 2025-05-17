@@ -12,7 +12,7 @@ import { GenerateImageState } from '@/types/actions';
 
 import LoadingSpinner from '../loading-spinner';
 
-import { ImageDisplay } from './(image-generator)/image-display';
+import { ImagePreview } from './image-preview';
 
 const ImageGenerator = () => {
   const initialState: GenerateImageState = {
@@ -55,7 +55,7 @@ const ImageGenerator = () => {
       </div>
 
       {state.imageUrl && (
-        <ImageDisplay
+        <ImagePreview
           imageUrl={state.imageUrl}
           keyword={state.keyword || 'generated'}
         />

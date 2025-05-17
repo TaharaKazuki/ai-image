@@ -4,12 +4,12 @@ import { Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { downloadImage } from '@/lib/downloadImage';
 
-type ImageDisplayProps = {
+type ImagePreview = {
   imageUrl: string;
   keyword: string;
 };
 
-export const ImageDisplay = ({ imageUrl, keyword }: ImageDisplayProps) => (
+export const ImagePreview = ({ imageUrl, keyword }: ImagePreview) => (
   <div className="space-y-4">
     <div className="bg-background overflow-hidden rounded-lg border">
       <div className="relative aspect-video">

@@ -1,5 +1,5 @@
-import ImageGenerator from '@/components/dashboard/tools/(image-generator)/image-generator';
 import BackgroundRemover from '@/components/dashboard/tools/background-remover';
+import ImageGenerator from '@/components/dashboard/tools/image-generator';
 
 export const tools = {
   'image-generator': {
