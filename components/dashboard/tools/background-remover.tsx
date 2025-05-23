@@ -14,7 +14,7 @@ import LoadingSpinner from '../loading-spinner';
 
 import { ImagePreview } from './image-preview';
 
-const ImageGenerator = () => {
+const BackgroundRemover = () => {
   const initialState: GenerateImageState = {
     status: 'idle',
   };
@@ -64,4 +64,4 @@ const ImageGenerator = () => {
   );
 };
 
-export default ImageGenerator;
+export default BackgroundRemover;
